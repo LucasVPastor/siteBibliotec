@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+   </head>
+<header> 
+    <div class="container">
+        <nav class="menu">
+            <ul>
+                <li> <a href="index.html"> <img src="img/logo/logotcc.png" alt="logotcc"> </a> </li>
+                <li> 
+                    <input type="text" name="txtBuscaLivro" id="txtBuscaLivro" placeholder="O que você esta procurando?"> </li>
+                <li> <a href="login.html"> Login <img src="img/icons/login.png" alt="" class="icon"> </a> </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<body id="corpo"> 
+    <div class="background-fundo-all">
+        <div class="body-login">
+            <div class="container-login">
+                <div class="buttonsform">
+                    <div class="btncolor"></div>
+                    <button id="btnentrar">Entrar</button>
+                    <button id="cadastrar">Cadastrar</button>
+                </div>
+                <form  id="entrar">
+                    <input type="text" placeholder="Nome Completo" id="txtusuNomeL" required/>
+                    <input type="password" placeholder="Senha" id="txtusuSenhaL" required/>
+                    <div class="divcheck">
+                        <input type="checkbox">
+                        <span>Lembrar senha</span>
+                    </div>
+                    <a id="LoginForm" class="buttoncadastro"> Entrar </a>
+                </form>
+                <form id="cadastrar-se">
+                    <input type="text" placeholder="Nome Completo" id="txtusuNome"/> 
+                    <input type="text" placeholder="Criar Email" id="txtusuEmail"/>
+                    <input type="password" placeholder="Criar senha" id="txtusuSenha"/>
+                    <input type="password" placeholder="Confirme a senha" id="txtusuSenha2"/>
+                    <div class="divcheck">
+                        <input type="checkbox"/>
+                        <span>Aceito os termos</span>    
+                    </div>
+                    <a  id="ValidaForm" class="buttoncadastro" > Cadastrar-se </a>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container-footer-login">
+        <footer>
+            <div class="container">
+                <div class="container-footer">
+                    <a href="#"> <img src="img/logo/facebook.png" alt=""> </a>
+                    <a href="#"> <img src="img/logo/instagram.png" alt=""> </a>
+                    <a href="#"> <img src="img/logo/twitter.png" alt=""> </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <div class="end-page">
+        <div class="container">
+            <div class="container-desc">
+                <div class="estil-titulo-endpage">
+                    <h2> Criadores do Site </h2>
+                    <h2> 3º Desenvolvimento de Sistemas </h2>
+                </div>
+                <div class="estil-endpage">
+                    <p>Bruno</p>
+                    <p>Diogo</p>
+                    <p>Felipe</p>
+                    <p>Gabriella</p>
+                    <p>Livia</p>
+                    <p>Lucas</p>
+                    <p>Lucca</p>
+                    <p>Pedro</p>    
+                    <p>Renzo</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="js/login.js"></script>
+    <!-- CRIP PASSWORD-->
+        <script>
+        // ----------- CRIPTOGRAFA SENHA ----------
+        var usuSenha = document.getElementById("txtusuSenha");
+        var usuSenhaL = document.getElementById("txtusuSenhaL");
+        
+            function cripSenha(){
+                var senhaCrip = CryptoJS.AES.encrypt(usuSenha.value, usuSenha.value);
+                return senhaCrip.toString();
+            }
+
+            function decPass(dbpass){
+                var senhaCrip = CryptoJS.AES.decrypt(dbpass, usuSenhaL.value);
+                return senhaCrip.toString(CryptoJS.enc.Utf8);
+            }
+        </script>
+    <!-- EVENTOS ENTER-->
+ <!--   <script>   
+        $(function(){
+        
+       $('corpo').keypress(function (e) {
+       var key = e.which;
+       if(key == 13)  // the enter key code
+        {
+          $('loginForm').click();
+          return false;  
+        }
+      });
+        
+      });  
+    </script> -->
+  
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
